@@ -1,29 +1,21 @@
 import React from 'react';
-import { StyleSheet, Text, View, Button} from 'react-native';
+import { StyleSheet, Text, View, Image, ImageBackground, TouchableOpacity} from 'react-native';
  const WelcomeScreen = props => {
   return (
     <View style={styles.container}>
-        <Text style={styles.logo}>Orion AI</Text>
-      <View style= {styles.playButton}>
-          <Button 
-            title= "PLAY"
-            color= "gray"
-            onPress ={()=>{
-              props.navigation.navigate({routeName: 'Wager'
-              });
-            }}
-          />  
-      </View>
-
-      <View style= {styles.howToButton}>
-          <Button 
-            title= "HOW TO PLAY"
-            color= "gray"
-             onPress ={()=>{
-              props.navigation.navigate({routeName: 'Tutorial'});
-            }}
-          />
-      </View>
+        <ImageBackground style= {styles.background}   
+            source={require("../assets/Background.png")} >
+              <Image style={styles.logoStars}
+              source={require("../assets/ThreeStars.png")} ></Image>
+              <Image style={styles.logo}
+              source={require("../assets/OrionLogo.png")} ></Image>
+              <TouchableOpacity style={styles.button} onPress={()=>{props.navigation.navigate({routeName: 'Wager'})}}>
+                <Image style={styles.playButton} source={require("../assets/PlayButton.png")} />
+              </TouchableOpacity>
+              <TouchableOpacity style={styles.button} onPress ={()=>{props.navigation.navigate({routeName: 'Tutorial'})}}>
+                <Image style={styles.playButton} source={require("../assets/SignUpButton.png")}/>
+              </TouchableOpacity>
+        </ImageBackground>
     </View>
   );
 }
@@ -34,27 +26,34 @@ WelcomeScreen.navigationOptions = {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'gray',
     alignItems: 'center',
     justifyContent: 'flex-end',
   },
   playButton: {
-      width: '100%',
-      height: 125,
-      backgroundColor: "goldenrod",
-      justifyContent: "center",
-      alignItems: "center",
+      width: 200,
+      height: 100,
+      resizeMode: "contain"
   },
-  howToButton: {
-    width: '100%',
-    height: 125,
-    backgroundColor: "purple",
-    justifyContent: "center",
-    alignItems: "center",
+  button: {
+    shadowOpacity: 0.35,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   logo: {
-    top: -250,
-    fontSize: 50,
+    top: 0,
+    height: "30%",
+    width: "100%"
+  },
+  logoStars: {
+    resizeMode: "contain",
+    width: "80%",
+    height: "10%"
+  },
+  background: {
+      height: "100%",
+      width: "100%",
+      justifyContent: "center",
+      alignItems: "center",
   }
 });
 

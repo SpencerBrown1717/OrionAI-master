@@ -1,9 +1,10 @@
 import React,{useState} from 'react';
-import { StyleSheet, Text, View, Button,Image} from 'react-native';
+import { StyleSheet, Text, View, Button,Image, Alert} from 'react-native';
 import {QUESTIONS} from '../data/question-data';
 
  const GameScreen = props =>{
      const currentWager = props.navigation.getParam('wager');
+     const [currentScore, setCurrentScore] = useState(0);
      function getQuestion(){
          const number = Math.floor(Math.random() * 10)+1;
          const value = QUESTIONS.find(ques => ques.id == number);
@@ -11,7 +12,35 @@ import {QUESTIONS} from '../data/question-data';
          console.log(value);
          return value;
      }
-     //console.log(getQuestion().id);
+     function checkAi(val){
+        const rndInt = Math.floor(Math.random() * 2) + 1
+        if (val==rndInt){
+            Alert.alert(
+                "Orion Guessed Right!",
+                "",
+                [
+                    
+                  { text: "OK", 
+                  onPress: () => console.log("OK Pressed"),
+                  style: "cancel" }
+                ]
+            );   
+            
+        }else{
+            Alert.alert(
+                "Incorrect by Orion",
+                "Score +1",
+                [
+                  
+                  { text: "OK", 
+                  onPress: () => console.log("OK Pressed"),
+                  style: "cancel" }
+                ]
+            ) 
+            setCurrentScore(prevState=>prevState+1);  
+        }
+     }
+
      const [currentQuestion,setCurrentQuestion]=useState(getQuestion());
      const [currentRound, setCurrentRound] = useState(1);
      if (currentRound>7){
@@ -26,7 +55,7 @@ import {QUESTIONS} from '../data/question-data';
                         Game Over
                         </Text>
                         <Text>
-                        Score: 5 out of 7
+                        Score: {currentScore} out of 7
                         </Text>
                 </View>
          );
@@ -42,16 +71,24 @@ import {QUESTIONS} from '../data/question-data';
              Round {currentRound} of 7
             </Text>
             </View>
-            
             <Text style={styles.textContainer,{fontSize:18}}> 
                 What does Lewis prefer?
             </Text>
+            <Text>
+                {currentScore}
+            </Text>
             <View style={{width:'90%'}}>
                 <View style={styles.choiceButton}>
-                <Button title={currentQuestion.choice1} onPress={()=>{setCurrentQuestion(prevState=>getQuestion()); setCurrentRound(prevState=>prevState+1)}}/>
+                <Button title={currentQuestion.choice1} onPress={()=>{
+                    checkAi(1);
+                    setCurrentQuestion(prevState=>getQuestion()); 
+                    setCurrentRound(prevState=>prevState+1)}}/>
                 </View>
                 <View style={styles.choiceButton}>
-                <Button title={currentQuestion.choice2} onPress={()=>{setCurrentQuestion(prevState=>getQuestion()); setCurrentRound(prevState=>prevState+1)}}/>
+                <Button title={currentQuestion.choice2} onPress={()=>{
+                    checkAi(2);
+                    setCurrentQuestion(prevState=>getQuestion()); 
+                    setCurrentRound(prevState=>prevState+1)}}/>
                 </View>
             </View>
          </View>

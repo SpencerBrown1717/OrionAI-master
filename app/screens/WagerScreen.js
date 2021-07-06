@@ -1,5 +1,5 @@
 import React, {useState}from 'react';
-import { StyleSheet, Text, View, Alert, Button, SafeAreaView, Platform, TouchableOpacity} from 'react-native';
+import { StyleSheet, Text, View, Alert, Button, SafeAreaView, Platform, TouchableOpacity,FlatList, TextInput} from 'react-native';
 import ScrollPicker from 'react-native-wheel-scroll-picker';
 
 const WagerScreen = props => {
@@ -13,8 +13,20 @@ const WagerScreen = props => {
   return (
     <SafeAreaView style={styles.container}>
         <Text style={styles.logo}>Orion AI</Text>
-        
+        <View>
         <View style = {styles.wagerview}>
+          <View style ={styles.customView}>
+            <Text style={{fontSize:24}}>Custom Wager</Text>
+          <TextInput style = {styles.customInput} onChangeText={text => setWager(text)}/>
+       
+       <TouchableOpacity title="Confirm Custom" style={styles.buttonContainer} onPress={()=>{props.navigation.navigate({routeName: 'GameScreen', params:{wager:currentWager}})}}>
+         <Text style={{fontSize:25}}> Confirm</Text>
+       </TouchableOpacity>
+       
+       </View>
+          
+          </View>
+          <View style={styles.scrollpickerView}>
             <ScrollPicker
         dataSource={dataItems}
         selectedIndex={0}
@@ -33,23 +45,21 @@ const WagerScreen = props => {
         wrapperWidth={150}
         highlightColor={"#d8d8d8"}
         highlightBorderWidth={2}
-        style = {styles.wagerscreen}/>
-        <View >
+        style = {styles.wagerscreen}/> 
+         <View >
            <TouchableOpacity style={styles.buttonContainer}title="Confirm" onPress={()=>{
              props.navigation.navigate({routeName: 'GameScreen', params:{wager:currentWager}});
-             
             }}>
               <Text style={ {fontSize:25}}>Confirm</Text>
             </TouchableOpacity>
+        </View> 
         </View>
-       
        </View>
     </SafeAreaView>
   );
 }
 WagerScreen.navigationOptions = {
   headerTitle: 'Wager Screen'
-  
 };
 
 const styles = StyleSheet.create({
@@ -59,13 +69,32 @@ const styles = StyleSheet.create({
       alignItems: 'center',
       justifyContent: 'flex-start',
       
+    },scrollpickerView:{
+      width:300,
+      height: 300,
+      backgroundColor: 'white',
+      alignItems: 'center',
+      justifyContent: 'flex-start',
+      borderRadius:10,
+      
+    }
+    ,customView:{
+      flex: 1,
+      backgroundColor: 'white',
+      alignItems: 'center',
+      justifyContent: 'flex-start',
+      height: '100%',
+      width:'100%',
+      borderRadius:10,
+      marginTop:20
     },
     buttonContainer: {
-        width: '100%',
+        width: 300,
         height: 125,
         backgroundColor: "goldenrod",
         justifyContent: "center",
         alignItems: "center",
+        borderRadius:10
        
     },
     logo: {
@@ -74,7 +103,19 @@ const styles = StyleSheet.create({
   wagerview:{
       width:300,
       height:300,
-      margin:100
+      marginTop:10,
+      marginBottom:10,
+      justifyContent:"center",
+      alignItems:'center'
+
+  },
+  customInput:{
+    borderColor: "black",
+        borderRadius: 200,
+        width:'50%',
+        borderWidth: 1,
+        padding:10,
+        margin:5
   }
 });
 
