@@ -1,0 +1,11 @@
+fun side project would be to add Open AI API to The codeing of the APP
+
+
+Add the API to the code, and set up some cool paramiters so it works and responds, make the game actualy work... only downside it pushig API keys 
+
+frankly ill use Github co-pilot and open AI to write my code and ill reveiw and itterate it
+
+
+
+Need to do: see if i have accese to the google firebase code 
+See if i can wirte a pythong script and have it run on the 
