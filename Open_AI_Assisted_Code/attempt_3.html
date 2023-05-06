@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Love Game</title>
+    <style>
+      body {
+        background-image: url("https://i.imgur.com/hZKjGgM.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        height: 100vh;
+        font-family: sans-serif;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .container {
+        background-color: rgba(255, 255, 255, 0.8);
+        padding: 20px;
+        border-radius: 20px;
+        width: 500px;
+        max-width: 100%;
+        box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
+        text-align: center;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: 3rem;
+        color: #ff1493;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      }
+
+      .question-container {
+        margin: 20px 0;
+      }
+
+      .question {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #000080;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      }
+
+      .input-container {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 20px;
+      }
+
+      .input-container input[type="text"] {
+        border: none;
+        background-color: rgba(255, 255, 255, 0.8);
+        border-radius: 10px;
+        padding: 10px;
+        width: 100%;
+        box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        font-size: 1.2rem;
+      }
+
+      .button-container {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 20px;
+      }
+
+      button {
+        border: none;
+        background-color: #ff1493;
+        color: white;
+        font-size: 1.2rem;
+        padding: 10px 20px;
+        border-radius: 10px;
+        box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: #ff69b4;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>The Love Game</h1>
+      <div class="question-container">
+        <div class="question">Would you rather...</div>
+        <div class="question-text">Loading question...</div>
+      </div>
+      <div class="input-container">
+        <input type="text" id="boyfriend-answer" placeholder="Boyfriend's answer" />
+        <input type="text" id="ai-answer" placeholder="AI's answer" readonly />
+      </div>
+      <div class="button-container">
+        <button id="generate-question-button">Generate question</button>
+        <button id="submit-answers-button">Submit answers</button>
+      </div>

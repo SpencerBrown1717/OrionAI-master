@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Would You Rather Dating Game</title>
+    <style>
+      body {
+        background-image: url('https://i.imgur.com/5sVcSoN.jpg');
+        background-size: cover;
+        background-position: center;
+        font-family: Arial, sans-serif;
+        color: #fff;
+        text-align: center;
+      }
+      
+      h1 {
+        font-size: 48px;
+        margin-top: 100px;
+      }
+      
+      #question-container {
+        margin-top: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      
+      #question {
+        font-size: 36px;
+        font-weight: bold;
+        padding: 20px;
+        background-color: rgba(255, 255, 255, 0.8);
+        border-radius: 20px;
+      }
+      
+      button {
+        margin-top: 50px;
+        padding: 20px;
+        background-color: #ffcc00;
+        border: none;
+        border-radius: 20px;
+        font-size: 24px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+      
+      button:hover {
+        background-color: #ffc600;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Would You Rather Dating Game</h1>
+    <div id="question-container">
+      <div id="question"></div>
+    </div>
+    <button id="generate-btn">Generate Question</button>
+    <script>
+      const questions = [
+        'Would you rather go on a picnic under the stars or have a candlelit dinner?',
+        'Would you rather go on a romantic beach vacation or a cozy mountain getaway?',
+        'Would you rather go to a fancy restaurant or cook a gourmet meal together at home?',
+        'Would you rather go to a concert or a museum exhibit?',
+        'Would you rather go on a spontaneous road trip or plan a detailed itinerary?',
+        'Would you rather go for a hike in the woods or a stroll in the park?',
+        'Would you rather go skydiving or bungee jumping?',
+        'Would you rather go to a comedy show or a drama play?',
+        'Would you rather go to a wine tasting or a brewery tour?',
+        'Would you rather go on a hot air balloon ride or a helicopter tour?',
+      ];
+      
+      const questionEl = document.querySelector('#question');
+      const generateBtn = document.querySelector('#generate-btn');
+      
+      function generateQuestion() {
+        const randomIndex = Math.floor(Math.random() * questions.length);
+        questionEl.textContent = questions[randomIndex];
+      }
+      
+      generateBtn.addEventListener('click', generateQuestion);
+    </script>
+  </body>
+</html>

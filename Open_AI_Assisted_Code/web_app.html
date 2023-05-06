@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Would You Rather</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<style>
+		body {
+			font-family: sans-serif;
+			margin: 0;
+			padding: 0;
+			background-color: #f2f2f2;
+		}
+		.container {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			margin: 0 auto;
+			max-width: 600px;
+			padding: 20px;
+			background-color: white;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+			border-radius: 5px;
+		}
+		h1 {
+			margin-top: 0;
+			font-size: 36px;
+			text-align: center;
+			color: #333;
+		}
+		p {
+			font-size: 24px;
+			text-align: center;
+			color: #333;
+			margin: 20px 0;
+		}
+		button {
+			font-size: 18px;
+			padding: 10px 20px;
+			background-color: #333;
+			color: white;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+			transition: background-color 0.3s ease;
+		}
+		button:hover {
+			background-color: #666;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<h1>Would You Rather</h1>
+		<p id="question"></p>
+		<button id="new-question-btn">New Question</button>
+	</div>
+	<script src="https://cdn.openai.com/sdk/js/0.8.0/openai.js"></script>
+	<script>
+		const openaiApiKey = '<YOUR_API_KEY>';
+		const prompt = 'Generate a "Would you rather" question.';
+
+		const generateQuestion = async () => {
+			const response = await openai.Completion.create({
+				engine: 'davinci',
+				prompt: prompt,
+				max_tokens: 60,
+				n: 1,
+				stop: ['\n']
+			}, {
+				apiKey: openaiApiKey
+			});
+
+			const question = response.choices[0].text.trim();
+			document.getElementById('question').textContent = question;
+		};
+
+		document.getElementById('new-question-btn').addEventListener('click', generateQuestion);
+		generateQuestion();
+	</script>
+</body>
+</html>
