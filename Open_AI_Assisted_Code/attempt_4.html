@@ -29,7 +29,7 @@
       h1 {
         margin: 0;
         font-size: 3rem;
-        color: #5714ff;
+        color: #ff1493;
         text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
       }
 
@@ -68,7 +68,7 @@
 
       button {
         border: none;
-        background-color: #5714ff;
+        background-color: #ff1493;
         color: white;
         font-size: 1.2rem;
         padding: 10px 20px;
@@ -83,40 +83,6 @@
     </style>
   </head>
   <body>
-    <h1>Would You Rather Dating Game</h1>
-    <div id="question-container">
-      <div id="question"></div>
-    </div>
-    <button id="generate-btn">Generate Question</button>
-    <script>
-      const questions = [
-        'Would you rather go on a picnic under the stars or have a candlelit dinner?',
-        'Would you rather go on a romantic beach vacation or a cozy mountain getaway?',
-        'Would you rather go to a fancy restaurant or cook a gourmet meal together at home?',
-        'Would you rather go to a concert or a museum exhibit?',
-        'Would you rather go on a spontaneous road trip or plan a detailed itinerary?',
-        'Would you rather go for a hike in the woods or a stroll in the park?',
-        'Would you rather go skydiving or bungee jumping?',
-        'Would you rather go to a comedy show or a drama play?',
-        'Would you rather go to a wine tasting or a brewery tour?',
-        'Would you rather go on a hot air balloon ride or a helicopter tour?',
-      ];
-      
-      const questionEl = document.querySelector('#question');
-      const generateBtn = document.querySelector('#generate-btn');
-      
-      function generateQuestion() {
-        const randomIndex = Math.floor(Math.random() * questions.length);
-        questionEl.textContent = questions[randomIndex];
-      }
-      
-      generateBtn.addEventListener('click', generateQuestion);
-    </script>
-  </body>
-</html>
-    </style>
-  </head>
-  <body>
     <div class="container">
       <h1>Orion AI The Game</h1>
       <div class="question-container">
@@ -125,12 +91,3 @@
       </div>
       <div class="input-container">
         <input type="text" id="boyfriend-answer" placeholder="Boyfriend's answer" />
-        <input type="text" id="ai-answer" placeholder="AI's answer" readonly />
-      </div>
-      <div class="button-container">
-        <button id="generate-question-button">Generate question</button>
-        
-        <button id="submit-answers-button">Submit answers</button>
-      </div>
-
-    
