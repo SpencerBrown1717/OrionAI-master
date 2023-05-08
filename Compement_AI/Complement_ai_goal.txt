@@ -1,0 +1,18 @@
+AI can be used to complement people based of their socials media presence and it would be nice to have somone just say something nice about everyone of your posts. 
+
+
+to do this i want a basic log in - 
+
+with insta maybe 
+with tiktok maybe 
+with snapchat maybe 
+
+
+then it would watch the vid/ photo 
+
+and compliment you 
+ (for proto type just photo  )
+
+
+likely need imagae recognition or face recogision then i will use LLM to complement the identifyed features
+

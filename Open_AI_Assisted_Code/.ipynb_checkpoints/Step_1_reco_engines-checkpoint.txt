@@ -1,0 +1,4 @@
+1. Research existing recommendation engines and rewards systems: There are many existing systems out there that use machine learning and other techniques to make product recommendations and offer rewards to users. Look into some of these systems to see what works well and what doesn't, and use this knowledge to inform your own design.
+
+
+Results:
